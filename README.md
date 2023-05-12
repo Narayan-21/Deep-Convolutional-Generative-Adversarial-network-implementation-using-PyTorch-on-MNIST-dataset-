@@ -24,7 +24,7 @@ python train.py
 
 ## Model Architecture
 The DCGAN architecture consists of a generator network and a discriminator network. The generator network uses transposed convolutions to upsample random noise into meaningful images, while the discriminator network classifies the generated images as real or fake. For a detailed architecture diagram, refer to the image below:
-[img]
+![DCGAN](https://github.com/Narayan-21/Pytorch_DCGAN/assets/64371700/04a2f6cf-757e-4412-af80-637dd56ff840)
 Guidelines for stable DCGANs (as mentioned in the paper) are:
 1. Replace any pooling layers with strided convolutions (discriminator) and fractional-strided convolutions (generator).
 2. Use batchnorm in both the generator and the discriminator.
