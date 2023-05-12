@@ -4,12 +4,11 @@ import torch.nn as nn
 class Generator(nn.Module):
     def __init__(self, channels_noise, channels_img, features_g):
         super(Generator, self).__init__()
-        self.net = nn.Sequential(
+        self.gen = nn.Sequential(
             self.gen_block(channels_noise, features_g * 16, 4, 1, 0),
             self.gen_block(features_g * 16, features_g * 8, 4, 2, 1),
             self.gen_block(features_g * 8, features_g * 4, 4, 2, 1),
-            self.gen_block(features_g * 4, features_g * \
-                           2, 4, 2, 1),
+            self.gen_block(features_g * 4, features_g * 2, 4, 2, 1),
             nn.ConvTranspose2d(
                 features_g * 2, channels_img, kernel_size=4, stride=2, padding=1
             ),
@@ -31,7 +30,7 @@ class Generator(nn.Module):
         )
 
     def forward(self, x):
-        return self.net(x)
+        return self.gen(x)
 
 
 class Discriminator(nn.Module):
